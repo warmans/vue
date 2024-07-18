@@ -2,8 +2,8 @@ package vue
 
 import (
 	"fmt"
-	"github.com/gowasm/go-js-dom"
 	"golang.org/x/net/html"
+	"honnef.co/go/js/dom/v2"
 	"syscall/js"
 )
 
@@ -21,7 +21,7 @@ type vnode struct {
 
 func init() {
 	doc := js.Global().Get("document")
-	if doc == js.Undefined() || doc == js.Null() {
+	if doc.Equal(js.Undefined()) || doc.Equal(js.Null()) {
 		panic("failed to initialize document")
 	}
 	document = dom.WrapDocument(doc)

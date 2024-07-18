@@ -1,7 +1,7 @@
 package vue
 
 import (
-	"github.com/gowasm/go-js-dom"
+	"honnef.co/go/js/dom/v2"
 	"strings"
 	"syscall/js"
 )
@@ -14,7 +14,7 @@ func (vm *ViewModel) addEventListener(typ string, cb func(dom.Event)) {
 	if _, ok := vm.funcs[typ]; ok {
 		return
 	}
-	fn := vm.vnode.node.AddEventListener(typ, cb, false)
+	fn := vm.vnode.node.AddEventListener(typ, false, cb)
 	vm.funcs[typ] = fn
 }
 
@@ -59,7 +59,7 @@ func (vm *ViewModel) vOn(event dom.Event) {
 // release removes all the event listeners.
 func (vm *ViewModel) release() {
 	for typ, fn := range vm.funcs {
-		vm.vnode.node.RemoveEventListener(typ, fn, false)
+		vm.vnode.node.RemoveEventListener(typ, false, fn)
 	}
 }
 

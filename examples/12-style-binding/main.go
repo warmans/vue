@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/norunners/vue"
+	"github.com/warmans/vue"
 	"math/rand"
 	"time"
 )

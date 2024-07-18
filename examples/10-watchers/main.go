@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/norunners/vue"
+	"github.com/warmans/vue"
 	"net/http"
 	"strings"
 )

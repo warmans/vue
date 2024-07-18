@@ -1,6 +1,6 @@
 package main
 
-import "github.com/norunners/vue"
+import "github.com/warmans/vue"
 
 type Data struct {
 	Message string
